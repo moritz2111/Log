@@ -29,7 +29,8 @@
         "php": "^7",
         "horde/constraint": "^3",
         "horde/exception": "^3",
-        "horde/util": "^3"
+        "horde/util": "^3",
+        "horde/cli": "dev-FRAMEWORK_6_0"
     },
     "suggest": {
         "horde/cli": "^3",
@@ -37,6 +38,7 @@
         "horde/test": "^3",
         "ext-dom": "*"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
             "Horde_Log": "lib/"
