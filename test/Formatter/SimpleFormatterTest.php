@@ -44,3 +44,5 @@ class SimpleFormatterTest extends TestCase
         new SimpleFormatter(5);
     }
 }
+
+?>
