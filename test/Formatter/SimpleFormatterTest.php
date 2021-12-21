@@ -1,76 +1,45 @@
 <?php
+/**
+ * @author     Moritz Reiter
+ * @category   Horde
+ * @package    Log
+ * @subpackage UnitTests
+ */
 
 namespace Horde\Log\Test\Formatter;
 use PHPUnit\Framework\Testcase;
 use Horde\Log\Formatter\SimpleFormatter;
 use Horde\Log\LogMessage;
-use horde\Log\LogFormatter;
-use Horde\Log;
-
-
+use Horde\Log\LogFormatter;
 
 class SimpleFormatterTest extends TestCase
 {
-    public  function testConstructorThrowsOnBadFormatString()
+        public function setup(): void
+        {
+            $this->filter = new SimpleFormatter();
+        }
+
+        public function Formatisnull()
+        {
+            $this->assertTrue($this->filter->accept(array('message' => '', 'level' === 0)));
+        }
+
+        public function Formatisnotnull()
+        {
+            $this->assertFalse($this->filter->accept(array('message' => '', 'level' != 1)));
+        }
+        
+        public function testConstructorThrowsOnBadFormatString()
     {
         $this->expectException('InvalidArgumentException');
         new SimpleFormatter(1);
-    }
-}
-
-class ShouldNeverBeRunEither extends SimpleFormatterTest
-{
-}
-
-class TestOfStackTrace extends TestCase
-{
-    public function testCanFindAssertInTrace()
-    {
-        $trace = new SimpleStackTrace(['assert']);
-        $this->assertEqual(
-            $trace->traceMethod([[
-                'file' => 'TestCase',
-                'line' => 24,
-                'function' => 'assertSomething', ]]),
-                ' at [TestCase line 24]'
-            );
-    }
-}
-
-class DummyResource
-{
-}
-
-class TestOfContext extends TestCase
-{
-    public function testCurrentContextIsUnique()
-    {
-        $this->assertSame(
-            SimpleFormatterTest::getContext(),
-            SimpleFormatterTest::getContext(1)
-        );
-    }
-
-    public function testContextHoldsCurrentTestCase()
-    {
-        $context = SimpleFormatterTest::getContext();
-        $this->assertSame($this, $context->getTest());
-    }
-
-    public function testResourceIsSingleInstanceWithContext()
-    {
-        $context = new SimpleTestContext();
-        $this->assertSame(
-            $context->get('DummyResource'),
-            $context->get('DummyResource')
-        );
-    }
-
-    public function testClearingContextResetsResources()
-    {
-        $context = new SimpleTestContext(1);
-        $resource = $context->get('DummyResource');
-        $context->clear();
-        $this->assertClone($resource, $context->get('DummyResource'));
+        $this->expectException('Falsches Argument');
+        new SimpleFormatter(2);
+        $this->expectException('Error');
+        new SimpleFormatter(3);
+        $this->expectException('error');
+        new SimpleFormatter(4);
+        $this->expectException('InvalidOperator');
+        new SimpleFormatter(5);
     }
 }
