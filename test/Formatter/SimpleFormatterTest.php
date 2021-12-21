@@ -12,6 +12,7 @@ use Horde\Log\Formatter\SimpleFormatter;
 use Horde\Log\LogMessage;
 use Horde\Log\LogFormatter;
 
+
 class SimpleFormatterTest extends TestCase
 {
         public function setup(): void
