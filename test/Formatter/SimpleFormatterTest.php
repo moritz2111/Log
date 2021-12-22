@@ -13,7 +13,7 @@ use Horde\Log\LogMessage;
 use Horde\Log\LogFormatter;
 
 /*class SimpleFormatterTest extends TestCase
-
+{
 
     
         public function setup(): void
@@ -37,9 +37,7 @@ use Horde\Log\LogFormatter;
     
     class SimpleFormatterTest1 extends LogMessage
     {
-
-        
-         
+    
         public function testDefaultFormat()
     {
         $f = new SimpleFormatter();
@@ -57,7 +55,7 @@ use Horde\Log\LogFormatter;
         $this->assertStringNotContainsString ('Hallo', $line);
     }
 
-        public function testConstructorThrowsOnBadFormatString()
+       /* public function testConstructorThrowsOnBadFormatString()
     {
         $this->expectException('InvalidArgumentException');
         new SimpleFormatter(1);
@@ -69,5 +67,5 @@ use Horde\Log\LogFormatter;
         new SimpleFormatter(4);
         $this->expectException('InvalidOperator');
         new SimpleFormatter(5);
-    }
+    } */
 }
