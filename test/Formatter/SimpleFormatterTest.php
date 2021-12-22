@@ -55,18 +55,9 @@ use Horde\Log\LogFormatter;
         $this->assertStringNotContainsString ('Hallo', $line);
     }
 
-       /* public function testConstructorThrowsOnBadFormatString()
+        public function testConstructorThrowsOnBadFormatString()
     {
-        $this->expectException('InvalidArgumentException');
-        new SimpleFormatter(1);
-        $this->expectException('Falsches Argument');
-        new SimpleFormatter(2);
-        $this->expectException('Error');
-        new SimpleFormatter(3);
-        $this->expectException('error');
-        new SimpleFormatter(4);
-        $this->expectException('InvalidOperator');
-        new SimpleFormatter(5);
-    } */
-    
+       $this->expectException(TypeError::class);
+       new SimpleFormatter();
+    } 
 }
