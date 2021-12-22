@@ -68,4 +68,5 @@ use Horde\Log\LogFormatter;
         $this->expectException('InvalidOperator');
         new SimpleFormatter(5);
     } */
+    
 }
